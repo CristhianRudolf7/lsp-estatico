@@ -1,0 +1,11 @@
+import {useState} from 'react';
+import {useDialogFocus,dialogKeys} from './dialog';
+import {ArrowLeft,Volume2,X,Move} from 'lucide-react';
+import {alphabet,sayLetter} from './alphabet';
+export default function Alphabet({onBack}:{onBack:()=>void}){
+ const [selected,setSelected]=useState<typeof alphabet[number]|null>(null); useDialogFocus(selected!==null);
+ return <section className="alphabet-page"><div className="section-heading"><div><p className="eyebrow">APRENDE A TU RITMO</p><h1>Un lenguaje en tus manos.</h1><p className="muted">Explora el alfabeto dactilológico. Cada letra es un nuevo comienzo.</p></div><button className="secondary" onClick={onBack}><ArrowLeft size={17}/> Volver al traductor</button></div>
+ <div className="alphabet-note"><Move size={19}/><span>J, Ñ y Z necesitan movimiento. Puedes consultarlas aquí; el reconocimiento actual es de señas estáticas.</span></div>
+ <div className="alphabet-grid">{alphabet.map(item=><button className="letter-card" key={item.letter} onClick={()=>setSelected(item)} aria-label={`Ver seña de la letra ${item.letter}`}><div className="letter-top"><strong>{item.letter}</strong><span>{item.dynamic?'Con movimiento':'Estática'}</span></div><img src={`/signos/${item.asset}.png`} alt={`Seña de ${item.letter}`} loading="lazy"/><span className="letter-foot">Ver detalle <span>↗</span></span></button>)}</div>
+ {selected?<div className="modal-backdrop" onClick={()=>setSelected(null)}><div className="sign-modal" role="dialog" aria-modal="true" aria-label={`Letra ${selected.letter}`} onClick={e=>e.stopPropagation()} onKeyDown={e=>dialogKeys(e,()=>setSelected(null))}><button className="icon-button modal-close" autoFocus onClick={()=>setSelected(null)} aria-label="Cerrar detalle"><X/></button><p className="eyebrow">ALFABETO DACTILOLÓGICO</p><h2>Letra {selected.letter}</h2><img src={`/signos/${selected.asset}.png`} alt={`Referencia de la seña ${selected.letter}`}/>{selected.dynamic?<p className="muted">Esta letra se realiza con movimiento y no se reconoce con el modelo estático.</p>:<p className="muted">Forma la seña con tu mano y mantenla quieta frente a la cámara.</p>}<button className="primary" onClick={()=>sayLetter(selected.letter)}><Volume2 size={18}/> Escuchar letra</button></div></div>:null}</section>;
+}
