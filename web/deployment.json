@@ -1,7 +1,8 @@
 {
   "projectId": "prj_SAVTKzhvt4HdhA6akSwlgswDuNyj",
   "teamId": "team_KH8rnpwckw8O15siHj7yHPwL",
-  "deploymentId": "dpl_EzVJC93csRegA6amHVKBWU1Vcpug",
-  "productionUrl": "https://senas-web.vercel.app",
-  "state": "READY"
+  "deploymentId": "dpl_3JoR5PpMWFuSC4LWw4PMhfRG7sfN",
+  "productionUrl": "https://senas.crehlabs.com",
+  "state": "READY",
+  "commit": "4b6d334b02e322ae6b4b469063efdd0138d4ddd7"
 }
