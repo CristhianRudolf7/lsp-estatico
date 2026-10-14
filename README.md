@@ -34,6 +34,8 @@ npm run build
 
 La cámara requiere HTTPS o localhost. `npm run build` genera `web/dist/` y prepara el trabajador de MediaPipe y sus archivos WASM. Los modelos se sirven desde el propio sitio; los cuadros de cámara se procesan localmente. No requiere un servidor de inferencia ni GPU alquilada.
 
+Ambas aplicaciones tienen tres pestañas: **Traductor**, **Alfabeto** y **Texto a señas**. En la tercera puedes escribir hasta 280 caracteres, consultar la secuencia completa y reproducirla con pausa, avance manual y velocidad configurable. Conserva los espacios y la Ñ, convierte vocales con tilde a su letra base e indica las letras con movimiento y los caracteres sin ilustración. Esta función representa el deletreo dactilológico de la frase, no una traducción de la gramática de la LSP. Funciona localmente y no requiere cámara.
+
 La web incluye cambio de cámara, letra/confianza y alternativas, estabilización, voz, edición y copia de mensajes, y 27 ilustraciones del alfabeto. Retira la mano entre dos letras iguales para repetirlas.
 
 Los detalles están en [web/README.md](web/README.md). La publicación actual se registra en `web/deployment.json`.
@@ -48,7 +50,7 @@ Requisitos: JDK 17, Android SDK con plataforma 36 y las dependencias de Gradle. 
 
 El APK queda en `app/build/outputs/apk/release/app-release.apk`. La configuración actual firma con una clave de depuración para instalación directa; una publicación en tienda requiere una clave de release propia.
 
-El APK de la release inicial corresponde a la compilación Android 1.0.0 generada el 5 de octubre de 2026. Las láminas de Android son máscaras blancas con transparencia que la interfaz colorea; la web usa las ilustraciones originales completas.
+La versión Android 1.1.0 añade la interfaz Texto a señas. Las láminas de Android son máscaras blancas con transparencia que la interfaz colorea; la web usa las ilustraciones originales completas.
 
 ## Verificación
 

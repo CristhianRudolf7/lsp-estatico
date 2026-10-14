@@ -1,6 +1,6 @@
 {
   "name": "senas-web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +9,9 @@
     "test": "tsx scripts/parity.ts",
     "preview": "vite preview --host 0.0.0.0",
     "prebuild": "node scripts/build-worker.mjs",
-    "predev": "node scripts/build-worker.mjs"
+    "predev": "node scripts/build-worker.mjs",
+    "test:text": "tsx scripts/text-signs-test.ts",
+    "test:ui:text": "node scripts/text-signs-browser.mjs"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "0.10.32",

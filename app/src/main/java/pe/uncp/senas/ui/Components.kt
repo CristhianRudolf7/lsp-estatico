@@ -9,6 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -125,42 +126,44 @@ fun StatusPill(text: String, color: Color, modifier: Modifier = Modifier) {
 enum class Tab(val title: String, @param:DrawableRes val icon: Int) {
     Translate("Traducir", R.drawable.ic_sign_language),
     Alphabet("Alfabeto", R.drawable.ic_menu_book),
+    Text("Texto a señas", R.drawable.ic_sign_language),
 }
 
 /** Barra de navegación flotante en forma de píldora. */
 @Composable
 fun FloatingNav(current: Tab, onSelect: (Tab) -> Unit, modifier: Modifier = Modifier) {
-    Glass(modifier, shape = CircleShape, alpha = 0.85f) {
-        Row(Modifier.padding(6.dp), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+    Glass(modifier.fillMaxWidth().padding(horizontal = 12.dp), shape = CircleShape, alpha = 0.85f) {
+        Row(Modifier.fillMaxWidth().padding(6.dp), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
             Tab.entries.forEach { tab ->
-                NavItem(tab, selected = tab == current, onClick = { onSelect(tab) })
+                NavItem(tab, selected = tab == current, onClick = { onSelect(tab) }, modifier = Modifier.weight(1f))
             }
         }
     }
 }
 
 @Composable
-private fun NavItem(tab: Tab, selected: Boolean, onClick: () -> Unit) {
+private fun NavItem(tab: Tab, selected: Boolean, onClick: () -> Unit, modifier: Modifier) {
     val scale by animateFloatAsState(if (selected) 1f else 0.96f, label = "scale")
     val background: Brush = if (selected) Palette.AccentHorizontal else Brush.linearGradient(listOf(Color.Transparent, Color.Transparent))
-    Row(
-        Modifier
+    Column(
+        modifier
             .scale(scale)
             .clip(CircleShape)
             .background(background)
             .clickable(role = Role.Tab, onClick = onClick)
-            .padding(horizontal = 20.dp, vertical = 12.dp),
-        verticalAlignment = Alignment.CenterVertically,
+            .padding(horizontal = 4.dp, vertical = 12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(
             painterResource(tab.icon), null,
             tint = if (selected) Color.White else Palette.Muted,
             modifier = Modifier.size(20.dp),
         )
-        Spacer(Modifier.width(8.dp))
+        Spacer(Modifier.height(4.dp))
         Text(
             tab.title,
-            style = MaterialTheme.typography.labelLarge,
+            style = MaterialTheme.typography.labelMedium,
+            maxLines = 1,
             color = if (selected) Color.White else Palette.Muted,
         )
     }

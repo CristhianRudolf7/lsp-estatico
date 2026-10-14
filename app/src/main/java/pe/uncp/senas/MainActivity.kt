@@ -41,6 +41,7 @@ import pe.uncp.senas.ui.AlphabetScreen
 import pe.uncp.senas.ui.FloatingNav
 import pe.uncp.senas.ui.PermissionScreen
 import pe.uncp.senas.ui.Tab
+import pe.uncp.senas.ui.TextSignsScreen
 import pe.uncp.senas.ui.TranslateScreen
 import pe.uncp.senas.ui.theme.Palette
 import pe.uncp.senas.ui.theme.SenasTheme
@@ -107,6 +108,7 @@ private fun App(vm: TranslatorViewModel) {
                     )
                 }
                 Tab.Alphabet -> AlphabetScreen(onSpeak = vm::say, bottomInset = contentInset)
+                Tab.Text -> TextSignsScreen(bottomInset = contentInset)
             }
         }
         FloatingNav(

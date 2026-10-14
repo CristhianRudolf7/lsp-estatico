@@ -62,7 +62,7 @@ import pe.uncp.senas.data.SignLetter
 import pe.uncp.senas.ui.theme.Palette
 
 @Composable
-private fun rememberSignImage(letter: SignLetter): ImageBitmap? {
+internal fun rememberSignImage(letter: SignLetter): ImageBitmap? {
     val context = LocalContext.current
     return remember(letter.asset) {
         runCatching {

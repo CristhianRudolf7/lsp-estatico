@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {textSigns} from '../src/textSigns';
+const tokens=textSigns('¡Hola, Perú! Niño\nü 2026 👍');
+assert.equal(tokens.map(t=>t.letter).join(''),'¡HOLA, PERU! NIÑO U 2026 👍');
+assert.equal(tokens.find(t=>t.letter==='Ñ')?.sign?.asset,'N_TILDE');
+assert.equal(textSigns('n\u0303a\u0301').map(t=>t.letter).join(''),'ÑA');
+assert.equal(textSigns('jj')[0].sign?.dynamic,true);
+assert.equal(textSigns('jj').length,2);
+assert.equal(textSigns(' 👍')[1].sign,undefined);
+assert.equal(textSigns('').length,0);
+console.log('Texto a señas: Unicode, tildes, Ñ, espacios, repeticiones y caracteres sin seña OK');
