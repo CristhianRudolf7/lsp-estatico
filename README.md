@@ -5,10 +5,21 @@ Traductor del alfabeto dactilológico estático de la lengua de señas peruana, 
 **Web:** [senas.crehlabs.com](https://senas.crehlabs.com)  
 **Android:** [Descargar APK desde Releases](https://github.com/CristhianRudolf7/lsp-estatico/releases/latest)
 
+## Investigación y artículo científico
+
+**Toda la investigación está detallada en el [artículo completo de CREH Labs (PDF)](docs/investigacion/articulo-creh-labs.pdf).** Allí se explican la adquisición de datos, las características geométricas de la mano, el entrenamiento y comparación de seis algoritmos de ML, el protocolo experimental, los resultados y sus limitaciones.
+
+El [fuente LaTeX y los recursos de compilación](docs/investigacion/) están incluidos en este repositorio. Consulta también las [instrucciones de compilación y la cita bibliográfica/BibTeX](docs/investigacion/README.md#cómo-citar).
+
+> Egoavil, C. (2026). *Algoritmos de ML para reconocer el alfabeto estático de la lengua de señas peruana*. CREH Labs. [Artículo](docs/investigacion/articulo-creh-labs.pdf).
+
+La comparación experimental y las aplicaciones publicadas tienen alcances distintos: las métricas del artículo corresponden al conjunto evaluado; no constituyen una medición del reconocimiento con usuarios de la web o Android. Las aplicaciones conservan el modelo original descrito abajo.
+
 ## Contenido
 
 | Ruta | Contenido |
 |---|---|
+| `docs/investigacion/` | Artículo CREH Labs en PDF, fuente LaTeX, plantilla, gráficos y cita bibliográfica. |
 | `web/` | React, TypeScript, Vite y Tailwind CSS. Versión publicada en Vercel. |
 | `app/` | Android con Kotlin, Jetpack Compose, CameraX y lectura por voz. |
 | `tools/` | Modelo original `.pkl`, exportación del clasificador y preparación de láminas. |

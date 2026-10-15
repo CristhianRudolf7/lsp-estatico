@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
+  <title id="title">Isotipo de CREH LABS</title>
+  <desc id="desc">Una C orbital con un símbolo de ejecución y un nodo de automatización.</desc>
+  <rect x="2" y="2" width="44" height="44" rx="13" fill="#0a0a0a"/>
+  <path d="M32.5 15.5A12 12 0 1 0 32.5 32.5" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <path d="m21.5 19.5 4.5 4.5-4.5 4.5" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="35" cy="24" r="2.5" fill="#fff"/>
+</svg>

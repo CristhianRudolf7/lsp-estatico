@@ -1,0 +1,58 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{creh-article}[2026/09/13 CREH Labs short scientific articles]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\newif\ifcrehenglish
+\DeclareOption{english}{\crehenglishtrue}
+\DeclareOption{spanish}{\crehenglishfalse}
+\ExecuteOptions{spanish}
+\ProcessOptions\relax
+\ifcrehenglish
+  \RequirePackage[spanish,english]{babel}
+  \newcommand{\CrehHeaderLabel}{SCIENTIFIC ARTICLES}
+  \newcommand{\CrehAbstractLabel}{Abstract}
+  \newcommand{\CrehKeywordsLabel}{Keywords:}
+\else
+  \RequirePackage[english,spanish,es-nodecimaldot]{babel}
+  \newcommand{\CrehHeaderLabel}{ARTÍCULOS CIENTÍFICOS}
+  \newcommand{\CrehAbstractLabel}{Resumen}
+  \newcommand{\CrehKeywordsLabel}{Palabras clave:}
+\fi
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[a4paper,left=24mm,right=24mm,top=27mm,bottom=25mm,headheight=27pt,headsep=13pt]{geometry}
+\RequirePackage{xcolor,graphicx,amsmath,amssymb,booktabs,fancyhdr}
+\RequirePackage{hyperref}
+\pdfstringdefDisableCommands{\def\\{ }}
+\definecolor{crehink}{HTML}{262B2D}
+\definecolor{crehaccent}{HTML}{405E59}
+\definecolor{crehbadge}{HTML}{E7EDE9}
+\definecolor{crehrule}{HTML}{CDD5D1}
+\definecolor{crehsoft}{HTML}{F5F5F2}
+\definecolor{crehmuted}{HTML}{6F6F69}
+\hypersetup{colorlinks=true,linkcolor=crehaccent,urlcolor=crehaccent,citecolor=crehaccent,pdfauthor={Cristhian Egoavil}}
+\ifcrehenglish\hypersetup{pdflang={en}}\else\hypersetup{pdflang={es}}\fi
+\color{crehink}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\linespread{1.08}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\raisebox{-.25\height}{\includegraphics[width=7mm]{creh-mark.pdf}}\hspace{3mm}{\sffamily\bfseries CREH Labs}}
+\fancyhead[R]{{\sffamily\scriptsize\color{crehmuted} \CrehHeaderLabel}}
+\fancyfoot[L]{{\sffamily\footnotesize creado por Cristhian Egoavil}}
+\fancyfoot[R]{{\sffamily\footnotesize\thepage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.3pt}
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{0pt}{14pt}{5pt}{\sffamily\large\bfseries\color{crehink}}}
+\renewcommand\subsection{\@startsection{subsection}{2}{0pt}{10pt}{4pt}{\sffamily\normalsize\bfseries}}
+\makeatother
+\newcommand{\ArticleTitle}[3]{%
+  {\sffamily\scriptsize\bfseries\colorbox{crehbadge}{\strut\ #1\ }}\par\vspace{9pt}
+  {\sffamily\bfseries\fontsize{27}{30}\selectfont #2\par}\vspace{6pt}
+  {\sffamily\small\color{crehmuted} Cristhian Egoavil\quad/\quad #3\par}
+  \vspace{9pt}{\color{crehrule}\rule{\linewidth}{0.6pt}}\vspace{3pt}
+  \hypersetup{pdftitle={#2}}}
+\newcommand{\ArticleAbstract}[1]{\begingroup\setlength{\fboxsep}{11pt}\noindent\colorbox{crehsoft}{\parbox{\dimexpr\linewidth-22pt\relax}{\small\sffamily\textbf{\CrehAbstractLabel}\par\vspace{3pt}#1}}\endgroup\par}
+\newcommand{\Keywords}[1]{{\small\textbf{\CrehKeywordsLabel} #1\par}}
