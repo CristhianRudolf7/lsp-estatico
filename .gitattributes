@@ -1,0 +1,3 @@
+# Preserve the exact dataset hash and literal space labels in CSV files.
+research/data/csv-angles-static/df.csv -text whitespace=-blank-at-eol
+research/results/predictions_*.csv whitespace=-blank-at-eol

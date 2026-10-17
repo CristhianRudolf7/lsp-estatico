@@ -1,0 +1,10 @@
+{
+  "classes_match": true,
+  "features": 16,
+  "trees": 100,
+  "identical_trees_to_original": 0,
+  "original_accuracy_on_complete_csv": 0.9564,
+  "retrained_accuracy_on_complete_csv": 1.0,
+  "binary_bytes": 5156190,
+  "note": "Exactitud sobre la tabla completa no es una evaluaci\u00f3n independiente."
+}

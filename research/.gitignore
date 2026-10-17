@@ -1,0 +1,8 @@
+runs/
+__pycache__/
+.venv/
+paper/
+paper-creh-es/
+make_paper.py
+data/21-puntos-csv-estatico/
+results/train.log

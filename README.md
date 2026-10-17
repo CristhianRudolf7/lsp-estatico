@@ -19,11 +19,18 @@ La comparación experimental y las aplicaciones publicadas tienen alcances disti
 
 | Ruta | Contenido |
 |---|---|
+| `research/` | Experimento reproducible: CSV verificado, entrenamiento de seis algoritmos, modelos, resultados y comprobaciones. |
 | `docs/investigacion/` | Artículo CREH Labs en PDF, fuente LaTeX, plantilla, gráficos y cita bibliográfica. |
 | `web/` | React, TypeScript, Vite y Tailwind CSS. Versión publicada en Vercel. |
 | `app/` | Android con Kotlin, Jetpack Compose, CameraX y lectura por voz. |
 | `tools/` | Modelo original `.pkl`, exportación del clasificador y preparación de láminas. |
 | `gradle/`, `gradlew` | Herramientas de compilación de Android. |
+
+## Reproducir la investigación
+
+La [guía del experimento](research/README.md) permite entrenar los seis algoritmos en CPU y comprobar sus métricas desde una copia nueva del repositorio. Incluye el CSV con SHA-256, las dependencias fijadas, los modelos evaluados, las particiones y predicciones originales, la exportación binaria y la prueba del lector web. No requiere credenciales de Kaggle ni alquilar una GPU.
+
+Las nuevas ejecuciones se guardan separadas de los resultados publicados y no sustituyen los modelos de las aplicaciones. El artículo CREH Labs sigue siendo la referencia completa de metodología, interpretación y limitaciones; los archivos de `research/` permiten auditar y reproducir su experimento.
 
 ## Algoritmo
 

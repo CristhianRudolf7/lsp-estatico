@@ -1,0 +1,20 @@
+{
+  "verified_at_lima": "2026-10-17T18:31:39.608767-05:00",
+  "method": "Copia aislada con solo los archivos preparados para GitHub; paquetes Python instalados coincidentes con requirements.txt; npm ci en la copia aislada. No se creó un entorno Python nuevo.",
+  "python": "3.13.5",
+  "node": "v26.6.0",
+  "checks": {
+    "dataset_and_archived_artifact_sha256": true,
+    "six_models_trained_in_cpu": true,
+    "metrics_match_published_atol": 1e-12,
+    "predictions_match_all_six_models": true,
+    "splits_and_confusion_match": true,
+    "binary_export": true,
+    "figures_regenerated": true,
+    "web_dependencies_npm_ci": true,
+    "web_parity_new_run": 400,
+    "web_parity_published_artifact": 400
+  },
+  "timings": "No se exige igualdad de tiempos ni de fecha/equipo.",
+  "production_models_modified": false
+}
